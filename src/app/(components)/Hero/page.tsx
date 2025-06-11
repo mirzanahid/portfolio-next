@@ -13,6 +13,7 @@ import {
   MapPin,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 // Floating particles component
 function FloatingParticles() {
@@ -59,7 +60,7 @@ export default function Hero() {
     "Mern Developer",
     "Frontend Specialist",
     "React Expert",
-    "Mern Full Stack Developer",
+    "Mern Stack Developer",
   ];
 
   useEffect(() => {
@@ -69,6 +70,20 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, [roles.length]);
 
+  const handleScroll = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+  const downloadCV = () => {
+    const link = document.createElement("a");
+    link.href = "/cv/my-cv.pdf";
+    link.download = "My_CV.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
   return (
     <section className="min-h-screen  flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-slate-50 via-purple-50/50 to-slate-50 dark:from-gray-950 dark:via-purple-950/20 dark:to-gray-950">
       {/* Animated Background */}
@@ -179,16 +194,18 @@ export default function Hero() {
               className="flex flex-col sm:flex-row gap-4"
             >
               <Button
+                onClick={() => handleScroll("projects")}
                 size="lg"
-                className="group bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white shadow-lg hover:shadow-xl transition-all duration-300"
+                className="group bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
               >
                 View My Work
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Button>
               <Button
+                onClick={downloadCV}
                 variant="outline"
                 size="lg"
-                className="border-pink-200 text-pink-600 hover:bg-pink-50 dark:border-pink-800 dark:text-pink-400 dark:hover:bg-pink-900/30 backdrop-blur-sm"
+                className="border-pink-200 text-pink-600 hover:bg-pink-50 dark:border-pink-800 dark:text-pink-400 dark:hover:bg-pink-900/30 backdrop-blur-sm cursor-pointer"
               >
                 <Download className="mr-2 h-4 w-4" />
                 Download CV
@@ -207,22 +224,28 @@ export default function Hero() {
                 size="icon"
                 className="hover:bg-purple-100 dark:hover:bg-purple-900/30 backdrop-blur-sm"
               >
-                <Github className="h-5 w-5 text-purple-600 dark:text-purple-400" />
+                <Link href="">
+                  <Github className="h-5 w-5 text-purple-600 dark:text-purple-400" />
+                </Link>
               </Button>
               <Button
                 variant="ghost"
                 size="icon"
                 className="hover:bg-pink-100 dark:hover:bg-pink-900/30 backdrop-blur-sm"
               >
-                <Linkedin className="h-5 w-5 text-pink-600 dark:text-pink-400" />
+                <Link href="">
+                  <Linkedin className="h-5 w-5 text-pink-600 dark:text-pink-400" />
+                </Link>
               </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="hover:bg-red-100 dark:hover:bg-red-900/30 backdrop-blur-sm"
-              >
-                <Mail className="h-5 w-5 text-red-600 dark:text-red-400" />
-              </Button>
+              <a href="mailto:mirzanahid57@gmail.com">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="hover:bg-red-100 dark:hover:bg-red-900/30 backdrop-blur-sm cursor-pointer"
+                >
+                  <Mail className="h-5 w-5 text-red-600 dark:text-red-400 " />
+                </Button>
+              </a>
             </motion.div>
           </motion.div>
 
@@ -240,7 +263,7 @@ export default function Hero() {
 
               {/* Main image container */}
               <div className="relative bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-2xl p-2 shadow-2xl">
-                <div className="relative w-80 h-96 md:w-96 md:h-[480px] rounded-xl overflow-hidden">
+                <div className="relative w-75 h-96 md:w-96 md:h-[480px] rounded-xl overflow-hidden">
                   <Image
                     src="/me2.jpg"
                     alt="Mirza Nahid - Portfolio"
@@ -261,7 +284,7 @@ export default function Hero() {
                     <div className="text-xs text-muted-foreground">
                       Based in
                     </div>
-                    <div className="font-semibold">San Francisco, CA</div>
+                    <div className="font-semibold">Dhaka, Bangladesh</div>
                   </div>
                 </div>
               </div>
@@ -286,7 +309,7 @@ export default function Hero() {
                 }}
               >
                 <Badge className="bg-gradient-to-r from-green-500 to-blue-500 text-white shadow-lg">
-                  Node.js
+                  Next.js
                 </Badge>
               </motion.div>
               <motion.div

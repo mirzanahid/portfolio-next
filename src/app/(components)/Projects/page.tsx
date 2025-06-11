@@ -164,7 +164,7 @@ export default function Projects() {
   const featuredProjects = projects.filter((project) => project.featured)
 
   return (
-    <section className="py-20 relative overflow-hidden bg-gradient-to-br from-slate-50 via-purple-50/50 to-slate-50 dark:from-gray-950 dark:via-purple-950/20 dark:to-gray-950">
+    <section id="projects" className="py-20 relative overflow-hidden bg-gradient-to-br from-slate-50 via-purple-50/50 to-slate-50 dark:from-gray-950 dark:via-purple-950/20 dark:to-gray-950">
       {/* Animated Background */}
       <div className="absolute inset-0">
         <FloatingParticles />

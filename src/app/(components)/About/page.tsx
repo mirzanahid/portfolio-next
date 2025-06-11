@@ -7,12 +7,13 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Code,
-  Briefcase,
+  // Briefcase,
   GraduationCap,
   Heart,
   Coffee,
   Sparkles,
   CheckCircle2,
+  BookOpen,
 } from "lucide-react";
 
 // Floating particles component
@@ -54,51 +55,81 @@ function FloatingParticles() {
 }
 
 export default function About() {
-  const experiences = [
-    {
-      title: "Senior Frontend Developer",
-      company: "TechCorp Inc.",
-      period: "2021 - Present",
-      description:
-        "Led the development of multiple web applications using React and Next.js, improving performance by 40%.",
-    },
-    {
-      title: "UI/UX Designer & Developer",
-      company: "DesignHub",
-      period: "2019 - 2021",
-      description:
-        "Created user-centered designs and implemented them using modern frontend technologies.",
-    },
-    {
-      title: "Junior Web Developer",
-      company: "WebSolutions",
-      period: "2018 - 2019",
-      description:
-        "Developed responsive websites and maintained existing web applications.",
-    },
-  ];
+  // const experiences = [
+  //   {
+  //     title: "Senior Frontend Developer",
+  //     company: "TechCorp Inc.",
+  //     period: "2021 - Present",
+  //     description:
+  //       "Led the development of multiple web applications using React and Next.js, improving performance by 40%.",
+  //   },
+  //   {
+  //     title: "UI/UX Designer & Developer",
+  //     company: "DesignHub",
+  //     period: "2019 - 2021",
+  //     description:
+  //       "Created user-centered designs and implemented them using modern frontend technologies.",
+  //   },
+  //   {
+  //     title: "Junior Web Developer",
+  //     company: "WebSolutions",
+  //     period: "2018 - 2019",
+  //     description:
+  //       "Developed responsive websites and maintained existing web applications.",
+  //   },
+  // ];
 
+  const courses = [
+    {
+      degree: "Web Design Course",
+      institution: "Creative It",
+      year: "2020",
+      description:
+        "Specialized in Web Design with expertise in HTML, CSS, Bootstrap, jQuery, and Responsive Design.",
+    },
+    {
+      degree: "Complete Web Development Course With Jhankar Mahbub",
+      institution: "Programming Hero",
+      year: "2023",
+      description:
+        "Specialized in Full-Stack Web Development with proficiency in JavaScript, React, Firebase, Stripe, Tailwind CSS, DaisyUI, and Bootstrap",
+    },
+    {
+      degree: "Next Level Web development",
+      institution: "Programming Hero",
+      year: "2025",
+      description:
+        "Specialized in MERN Stack Development with expertise in MongoDB, Express.js, React, and Node.js",
+    },
+    // {
+    //   degree: "Bachelor's in Software Engineering",
+    //   institution: "State University",
+    //   year: "2016",
+    //   description:
+    //     "Graduated with honors, focused on web development and design.",
+    // },
+  ];
   const education = [
     {
-      degree: "Master's in Computer Science",
-      institution: "Tech University",
-      year: "2018",
+      degree: "Bachelor of Business Administration in Management",
+      institution: "National University",
+      year: "2022",
       description:
-        "Specialized in Human-Computer Interaction and Web Technologies.",
+        "Specialized in Business Management, Strategic Planning, and Organizational Leadership with exposure to Business Analytics and Digital Tools.",
     },
-    {
-      degree: "Bachelor's in Software Engineering",
-      institution: "State University",
-      year: "2016",
-      description:
-        "Graduated with honors, focused on web development and design.",
-    },
+    // {
+    //   degree: "Bachelor's in Software Engineering",
+    //   institution: "State University",
+    //   year: "2016",
+    //   description:
+    //     "Graduated with honors, focused on web development and design.",
+    // },
   ];
 
   return (
     <section
       id="about"
-      className="py-20 relative overflow-hidden bg-gradient-to-br from-slate-50 via-purple-50/50 to-slate-50 dark:from-gray-950 dark:via-purple-950/20 dark:to-gray-950"
+      className="py-10 lg:py-20 relative overflow-hidden bg-gradient-to-br from-slate-50 via-purple-50/50 to-slate-50 dark:from-gray-950 dark:via-purple-950/20 dark:to-gray-950"
     >
       {/* Animated Background */}
       <div className="absolute inset-0">
@@ -133,7 +164,7 @@ export default function About() {
           <div className="w-32 h-1 bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 rounded-full mx-auto mt-8"></div>
         </motion.div>
 
-        <div className="grid lg:grid-cols-12 gap-10">
+        <div className="grid lg:grid-cols-12 gap-5 lg:gap-10">
           {/* Left Column - Bio and Image */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -143,9 +174,9 @@ export default function About() {
             className="lg:col-span-5 space-y-8"
           >
             {/* Profile Image with Animation */}
-            <div className="relative">
+            <div className="relative ">
               <div className="absolute -inset-4 bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 rounded-xl opacity-30 blur-lg animate-pulse"></div>
-              <div className="relative aspect-square overflow-hidden rounded-xl border-2 border-pink-200 dark:border-pink-900/50">
+              <div className=" relative aspect-square overflow-hidden rounded-xl border-2 border-pink-200 dark:border-pink-900/50">
                 <Image
                   src="/me3..jpg"
                   alt="Mirza Nahid"
@@ -164,7 +195,7 @@ export default function About() {
             </div>
 
             {/* Interests */}
-            <div className="space-y-4">
+            <div className="space-y-4 hidden lg:block">
               <h3 className="text-2xl font-bold bg-gradient-to-r from-pink-500 to-red-500 bg-clip-text text-transparent flex items-center">
                 <Heart className="w-5 h-5 mr-2 text-pink-500" />
                 Personal Interests
@@ -212,39 +243,37 @@ export default function About() {
           >
             {/* Bio */}
             <div className="space-y-4">
-              <h3 className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent flex items-center">
+              <h3 className="text-2xl font-bold w-[200px] bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent flex items-center">
                 <Sparkles className="w-5 h-5 mr-2 text-pink-500" />
                 Who am I?
               </h3>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                 I&apos;m a passionate{" "}
                 <span className="font-semibold bg-gradient-to-r from-pink-500 to-red-500 bg-clip-text text-transparent">
-                  Full Stack Developer
+                  Mern Stack Developer
                 </span>{" "}
-                with 5+ years of experience creating beautiful, functional, and
-                user-centered digital experiences. Based in San Francisco, I am
-                a creative problem solver who loves to explore new technologies
-                and approaches.
+                with 3+ years of experience creating beautiful, functional, and
+                user-centered digital experiences. Based in Dhaka, Bangladesh, I
+                am a creative problem solver who loves to explore new
+                technologies and approaches.
               </p>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                 My journey in web development started when I built my first
-                website at 15. Since then, I&apos;ve worked with agencies,
-                startups, and established companies to help build and scale
-                their products. I specialize in JavaScript frameworks like React
+                website at 18. I specialize in JavaScript frameworks like React
                 and Next.js, with a strong focus on creating accessible and
                 performant web applications.
               </p>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                When I&apos;m not coding, you&apos;ll find me hiking in the
-                mountains, experimenting with photography, or exploring local
-                coffee shops. I believe in continuous learning and giving back
-                to the community through open-source contributions and
-                mentoring.
+                When I&apos;m not coding, you&apos;ll find me browsing in the
+                webworld to find and gain knowlege, experimenting with
+                photography, exploring local coffee shops or watching movies as
+                i am a movie lover. I believe in continuous learning and
+                building stunning projects
               </p>
             </div>
 
             {/* Tabs for Experience and Education */}
-            <Tabs defaultValue="education" className="w-full">
+            <Tabs defaultValue="courses" className="w-full">
               <TabsList className="grid w-full grid-cols-2 bg-gradient-to-r from-purple-100/50 to-pink-100/50 dark:from-purple-900/30 dark:to-pink-900/30">
                 <TabsTrigger
                   value="education"
@@ -252,11 +281,17 @@ export default function About() {
                 >
                   <GraduationCap className="w-4 h-4 mr-2" /> Education
                 </TabsTrigger>
-                <TabsTrigger
+                {/* <TabsTrigger
                   value="experience"
                   className="data-[state=active]:bg-white dark:data-[state=active]:bg-gray-800"
                 >
                   <Briefcase className="w-4 h-4 mr-2" /> Experience
+                </TabsTrigger> */}
+                <TabsTrigger
+                  value="courses"
+                  className="data-[state=active]:bg-white dark:data-[state=active]:bg-gray-800"
+                >
+                  <BookOpen className="w-4 h-4 mr-2" /> Courses
                 </TabsTrigger>
               </TabsList>
 
@@ -288,7 +323,35 @@ export default function About() {
                   </motion.div>
                 ))}
               </TabsContent>
-              <TabsContent value="experience" className="mt-6 space-y-6">
+              <TabsContent value="courses" className="mt-6 space-y-6">
+                {courses.map((edu, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.1 * index }}
+                    className="relative pl-6 border-l-2 border-pink-200 dark:border-pink-800"
+                  >
+                    <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-gradient-to-r from-pink-500 to-red-500"></div>
+                    <div className="mb-1 flex items-center">
+                      <Badge className="bg-gradient-to-r from-pink-100 to-red-100 text-pink-800 hover:bg-pink-200 dark:from-pink-900/30 dark:to-red-900/30 dark:text-pink-300 dark:hover:bg-pink-900/50">
+                        {edu.year}
+                      </Badge>
+                    </div>
+                    <h4 className="text-lg font-semibold text-gray-900 dark:text-white">
+                      {edu.degree}
+                    </h4>
+                    <p className="bg-gradient-to-r from-pink-500 to-red-500 bg-clip-text text-transparent mb-2">
+                      {edu.institution}
+                    </p>
+                    <p className="text-gray-700 dark:text-gray-300">
+                      {edu.description}
+                    </p>
+                  </motion.div>
+                ))}
+              </TabsContent>
+              {/* <TabsContent value="experience" className="mt-6 space-y-6">
                 {experiences.map((exp, index) => (
                   <motion.div
                     key={index}
@@ -315,9 +378,46 @@ export default function About() {
                     </p>
                   </motion.div>
                 ))}
-              </TabsContent>
+              </TabsContent> */}
             </Tabs>
           </motion.div>
+          {/* Interests */}
+          <div className="space-y-4 lg:hidden">
+            <h3 className="text-2xl font-bold bg-gradient-to-r from-pink-500 to-red-500 bg-clip-text text-transparent flex items-center">
+              <Heart className="w-5 h-5 mr-2 text-pink-500" />
+              Personal Interests
+            </h3>
+            <div className="flex flex-wrap gap-3">
+              {[
+                "Photography",
+                "Walking",
+                "Coffee",
+                "Reading",
+                "Travel",
+                "Music",
+                "Movie",
+                "Browsing",
+              ].map((interest, index) => (
+                <motion.div
+                  key={interest}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.05 * index }}
+                >
+                  <Badge className="px-3 py-1.5 bg-white dark:bg-gray-800 text-pink-700 dark:text-pink-300 border border-pink-200 dark:border-pink-800 hover:bg-pink-50 dark:hover:bg-pink-900/30">
+                    {interest === "Coffee" && (
+                      <Coffee className="w-3.5 h-3.5 mr-1.5" />
+                    )}
+                    {interest === "Open Source" && (
+                      <Code className="w-3.5 h-3.5 mr-1.5" />
+                    )}
+                    {interest}
+                  </Badge>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Call to Action */}
