@@ -173,10 +173,10 @@ export default function AnimatedNavbar() {
                 className="flex items-center space-x-2 group"
               >
                 <div className="w-10 h-10 bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 rounded-lg flex items-center justify-center transition-transform group-hover:scale-110 shadow-lg">
-                  <span className="text-white font-bold text-lg">AJ</span>
+                  <span className="text-white font-bold text-lg">MN</span>
                 </div>
                 <span className="font-bold text-xl bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 bg-clip-text text-transparent">
-                  Alex Johnson
+                  Mirza Nahid
                 </span>
               </a>
             </div>

@@ -165,7 +165,7 @@ export default function Skill() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(59,130,246,0.1),transparent_50%)]" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4  lg:px-28 relative z-10">
         {/* Enhanced Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -409,8 +409,8 @@ export default function Skill() {
           {[
             {
               icon: TrendingUp,
-              title: "5+ Years",
-              subtitle: "Full Stack Experience",
+              title: "3+ Years",
+              subtitle: "Mern Stack Experience",
               color: "from-purple-600 to-pink-500",
             },
             {
@@ -421,7 +421,7 @@ export default function Skill() {
             },
             {
               icon: Globe,
-              title: "50+ Projects",
+              title: "25+ Projects",
               subtitle: "Successfully Delivered",
               color: "from-purple-600 to-blue-500",
             },
@@ -446,8 +446,8 @@ export default function Skill() {
                   >
                     <stat.icon className="w-8 h-8 text-white" />
                   </motion.div>
-                  <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">{stat.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-400">{stat.subtitle}</p>
+                  <h3 className="text-xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-2">{stat.title}</h3>
+                  <p className="text-sm lg:text-lg text-gray-600 dark:text-gray-400">{stat.subtitle}</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -489,7 +489,7 @@ export default function Skill() {
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="group px-10 py-4 bg-white text-purple-600 font-bold text-lg rounded-2xl shadow-2xl hover:shadow-white/25 transition-all duration-300 flex items-center mx-auto"
+                className="group  px-3 md:px-10 py-4 bg-white text-purple-600 font-bold text-base md:text-lg rounded-2xl shadow-2xl hover:shadow-white/25 transition-all duration-300 flex items-center mx-auto"
                 onClick={() => {
                   const contactSection = document.querySelector("#contact")
                   if (contactSection) {
