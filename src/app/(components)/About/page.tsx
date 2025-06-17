@@ -15,16 +15,25 @@ import {
   CheckCircle2,
   BookOpen,
 } from "lucide-react";
+import { useEffect, useState } from "react";
 
-// Floating particles component
 function FloatingParticles() {
-  const particles = Array.from({ length: 15 }, (_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 3 + 1,
-    duration: Math.random() * 15 + 10,
-  }));
+  const [particles] = useState(() =>
+    Array.from({ length: 40 }, (_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      size: Math.random() * 4 + 1,
+      duration: Math.random() * 15 + 10,
+    }))
+  );
+
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null; // Render nothing on first render (server side)
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -129,7 +138,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="py-10 lg:py-20 relative overflow-hidden bg-gradient-to-br from-slate-50 via-purple-50/50 to-slate-50 dark:from-gray-950 dark:via-purple-950/20 dark:to-gray-950"
+      className="py-10 lg:pt-20 lg:pb-10 relative overflow-hidden bg-gradient-to-br from-slate-50 via-purple-50/50 to-slate-50 dark:from-gray-950 dark:via-purple-950/20 dark:to-gray-950"
     >
       {/* Animated Background */}
       <div className="absolute inset-0">

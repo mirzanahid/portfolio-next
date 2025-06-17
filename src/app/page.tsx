@@ -8,7 +8,7 @@ import Skill from "./(components)/Skill/page";
 
 const Home = () => {
   return (
-    <div className="container mx-auto">
+    <div className="">
       <Navbar></Navbar>
       <Hero></Hero>
       <About></About>
@@ -16,7 +16,6 @@ const Home = () => {
       <Projects></Projects>
       <Contact></Contact>
       <Footer></Footer>
-      
     </div>
   );
 };

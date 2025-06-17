@@ -1,10 +1,10 @@
-"use client"
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import Image from "next/image"
-import { Badge } from "@/components/ui/badge"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+"use client";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import {
   ExternalLink,
   Github,
@@ -19,17 +19,26 @@ import {
   Users,
   TrendingUp,
   Zap,
-} from "lucide-react"
+} from "lucide-react";
 
 // Floating particles component
 function FloatingParticles() {
-  const particles = Array.from({ length: 15 }, (_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 3 + 1,
-    duration: Math.random() * 15 + 10,
-  }))
+  const [particles] = useState(() =>
+    Array.from({ length: 40 }, (_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      size: Math.random() * 4 + 1,
+      duration: Math.random() * 15 + 10,
+    }))
+  );
+
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null; // Render nothing on first render (server side)
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -56,27 +65,34 @@ function FloatingParticles() {
         />
       ))}
     </div>
-  )
+  );
 }
-
 export default function Projects() {
-  const [activeFilter, setActiveFilter] = useState("all")
-  const [hoveredProject, setHoveredProject] = useState<string | null>(null)
+  const [activeFilter, setActiveFilter] = useState("all");
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [hoveredProject, setHoveredProject] = useState<string | null>(null);
 
   const categories = [
     { id: "all", name: "All Projects", icon: Globe, count: 12 },
     { id: "frontend", name: "Frontend", icon: Code2, count: 5 },
     { id: "fullstack", name: "Full Stack", icon: Server, count: 4 },
     { id: "backend", name: "Backend", icon: Database, count: 3 },
-  ]
+  ];
 
   const projects = [
     {
       id: "1",
       title: "E-Commerce Platform",
-      description: "A modern e-commerce platform with real-time inventory, payment processing, and admin dashboard.",
+      description:
+        "A modern e-commerce platform with real-time inventory, payment processing, and admin dashboard.",
       category: "fullstack",
-      technologies: ["Next.js", "TypeScript", "Stripe", "MongoDB", "Tailwind CSS"],
+      technologies: [
+        "Next.js",
+        "TypeScript",
+        "Stripe",
+        "MongoDB",
+        "Tailwind CSS",
+      ],
       image: "/placeholder.svg?height=400&width=600",
       liveUrl: "https://example.com",
       githubUrl: "https://github.com/example",
@@ -103,7 +119,8 @@ export default function Projects() {
     {
       id: "3",
       title: "REST API Gateway",
-      description: "Scalable API gateway with authentication, rate limiting, and microservices integration.",
+      description:
+        "Scalable API gateway with authentication, rate limiting, and microservices integration.",
       category: "backend",
       technologies: ["Node.js", "Express", "Redis", "PostgreSQL", "Docker"],
       image: "/placeholder.svg?height=400&width=600",
@@ -117,7 +134,8 @@ export default function Projects() {
     {
       id: "4",
       title: "Social Media Dashboard",
-      description: "Analytics dashboard for social media management with real-time data visualization and reporting.",
+      description:
+        "Analytics dashboard for social media management with real-time data visualization and reporting.",
       category: "fullstack",
       technologies: ["Next.js", "Chart.js", "Prisma", "Supabase"],
       image: "/placeholder.svg?height=400&width=600",
@@ -131,7 +149,8 @@ export default function Projects() {
     {
       id: "5",
       title: "Portfolio Website",
-      description: "Modern portfolio website with animations, dark mode, and responsive design.",
+      description:
+        "Modern portfolio website with animations, dark mode, and responsive design.",
       category: "frontend",
       technologies: ["React", "Tailwind CSS", "Framer Motion", "Vite"],
       image: "/placeholder.svg?height=400&width=600",
@@ -145,7 +164,8 @@ export default function Projects() {
     {
       id: "6",
       title: "Real-time Chat App",
-      description: "Real-time messaging application with file sharing, emoji reactions, and group chats.",
+      description:
+        "Real-time messaging application with file sharing, emoji reactions, and group chats.",
       category: "fullstack",
       technologies: ["Next.js", "Socket.io", "MongoDB", "Cloudinary"],
       image: "/placeholder.svg?height=400&width=600",
@@ -156,15 +176,20 @@ export default function Projects() {
       year: "2024",
       status: "Live",
     },
-  ]
+  ];
 
   const filteredProjects =
-    activeFilter === "all" ? projects : projects.filter((project) => project.category === activeFilter)
+    activeFilter === "all"
+      ? projects
+      : projects.filter((project) => project.category === activeFilter);
 
-  const featuredProjects = projects.filter((project) => project.featured)
+  const featuredProjects = projects.filter((project) => project.featured);
 
   return (
-    <section id="projects" className="py-20 relative overflow-hidden bg-gradient-to-br from-slate-50 via-purple-50/50 to-slate-50 dark:from-gray-950 dark:via-purple-950/20 dark:to-gray-950">
+    <section
+      id="projects"
+      className="py-20 relative overflow-hidden bg-gradient-to-br from-slate-50 via-purple-50/50 to-slate-50 dark:from-gray-950 dark:via-purple-950/20 dark:to-gray-950"
+    >
       {/* Animated Background */}
       <div className="absolute inset-0">
         <FloatingParticles />
@@ -173,7 +198,7 @@ export default function Projects() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_80%,rgba(239,68,68,0.1),transparent_50%)]" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4  relative z-10">
         {/* Enhanced Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -218,7 +243,8 @@ export default function Projects() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Explore my portfolio of web applications, from interactive frontends to robust full-stack solutions
+            Explore my portfolio of web applications, from interactive frontends
+            to robust full-stack solutions
           </motion.p>
 
           <motion.div
@@ -239,10 +265,30 @@ export default function Projects() {
           className="grid md:grid-cols-4 gap-6 mb-16"
         >
           {[
-            { icon: TrendingUp, value: "50+", label: "Projects Completed", color: "from-purple-600 to-pink-500" },
-            { icon: Users, value: "2K+", label: "Active Users", color: "from-pink-500 to-red-500" },
-            { icon: Star, value: "200+", label: "GitHub Stars", color: "from-red-500 to-purple-600" },
-            { icon: Zap, value: "99%", label: "Client Satisfaction", color: "from-purple-600 to-blue-500" },
+            {
+              icon: TrendingUp,
+              value: "50+",
+              label: "Projects Completed",
+              color: "from-purple-600 to-pink-500",
+            },
+            {
+              icon: Users,
+              value: "2K+",
+              label: "Active Users",
+              color: "from-pink-500 to-red-500",
+            },
+            {
+              icon: Star,
+              value: "200+",
+              label: "GitHub Stars",
+              color: "from-red-500 to-purple-600",
+            },
+            {
+              icon: Zap,
+              value: "99%",
+              label: "Client Satisfaction",
+              color: "from-purple-600 to-blue-500",
+            },
           ].map((stat, index) => (
             <motion.div
               key={index}
@@ -264,8 +310,12 @@ export default function Projects() {
                   >
                     <stat.icon className="w-6 h-6 text-white" />
                   </motion.div>
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">{stat.value}</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</p>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
+                    {stat.value}
+                  </h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    {stat.label}
+                  </p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -281,8 +331,8 @@ export default function Projects() {
           className="flex flex-wrap justify-center gap-4 mb-12"
         >
           {categories.map((category, index) => {
-            const IconComponent = category.icon
-            const isActive = activeFilter === category.id
+            const IconComponent = category.icon;
+            const isActive = activeFilter === category.id;
 
             return (
               <motion.button
@@ -303,12 +353,16 @@ export default function Projects() {
                 <IconComponent className="w-4 h-4" />
                 <span className="font-medium">{category.name}</span>
                 <Badge
-                  className={`text-xs ${isActive ? "bg-white/20 text-white" : "bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300"}`}
+                  className={`text-xs ${
+                    isActive
+                      ? "bg-white/20 text-white"
+                      : "bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300"
+                  }`}
                 >
                   {category.count}
                 </Badge>
               </motion.button>
-            )
+            );
           })}
         </motion.div>
 
@@ -336,7 +390,10 @@ export default function Projects() {
                   onMouseEnter={() => setHoveredProject(project.id)}
                   onMouseLeave={() => setHoveredProject(null)}
                 >
-                  <Card className="border-0 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl shadow-2xl overflow-hidden group">
+
+
+
+                  {/* <Card className="border-0 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl shadow-2xl overflow-hidden group">
                     <div className="relative overflow-hidden">
                       <Image
                         src={project.image || "/placeholder.svg"}
@@ -373,7 +430,9 @@ export default function Projects() {
                     </div>
                     <CardContent className="p-6">
                       <div className="flex items-center justify-between mb-3">
-                        <h4 className="text-xl font-bold text-gray-900 dark:text-white">{project.title}</h4>
+                        <h4 className="text-xl font-bold text-gray-900 dark:text-white">
+                          {project.title}
+                        </h4>
                         <div className="flex items-center space-x-2">
                           <Badge className="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300">
                             {project.status}
@@ -383,7 +442,9 @@ export default function Projects() {
                           </Badge>
                         </div>
                       </div>
-                      <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">{project.description}</p>
+                      <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+                        {project.description}
+                      </p>
                       <div className="flex flex-wrap gap-2 mb-6">
                         {project.technologies.map((tech) => (
                           <Badge
@@ -405,13 +466,103 @@ export default function Projects() {
                         <Button
                           variant="outline"
                           className="border-purple-200 text-purple-700 hover:bg-purple-50 dark:border-purple-800 dark:text-purple-300 dark:hover:bg-purple-900/30"
-                          onClick={() => window.open(project.githubUrl, "_blank")}
+                          onClick={() =>
+                            window.open(project.githubUrl, "_blank")
+                          }
                         >
                           <Github className="w-4 h-4" />
                         </Button>
                       </div>
                     </CardContent>
-                  </Card>
+                  </Card> */}
+
+
+<Card className="border-0 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl shadow-2xl overflow-hidden group">
+  <div className="relative overflow-hidden">
+    <Image
+      src={project.image || "/placeholder.svg"}
+      alt={project.title}
+      width={600}
+      height={400}
+      className="w-full object-cover transition-transform duration-500 group-hover:scale-110 sm:h-64 h-48" // smaller height on mobile
+    />
+    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+    <div className="absolute top-4 right-4">
+      <Badge className="bg-gradient-to-r from-purple-600 to-pink-500 text-white text-xs sm:text-sm"> {/* text smaller on mobile */}
+        <Star className="w-3 h-3 mr-1" />
+        Featured
+      </Badge>
+    </div>
+    <div className="absolute bottom-4 left-4 right-4">
+      <div className="flex flex-wrap items-center justify-between text-white text-xs sm:text-sm"> {/* flex-wrap for mobile */}
+        <div className="flex items-center space-x-2 sm:space-x-4 text-xs sm:text-sm">
+          <span className="flex items-center">
+            <Eye className="w-4 h-4 mr-1" />
+            {project.stats.views}
+          </span>
+          <span className="flex items-center">
+            <Star className="w-4 h-4 mr-1" />
+            {project.stats.stars}
+          </span>
+          <span className="flex items-center">
+            <Users className="w-4 h-4 mr-1" />
+            {project.stats.users}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <CardContent className="p-4 sm:p-6"> {/* padding reduced on mobile */}
+    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-3 gap-2"> {/* stack on mobile */}
+      <h4 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white"> {/* slightly smaller heading */}
+        {project.title}
+      </h4>
+      <div className="flex items-center space-x-1 sm:space-x-2">
+        <Badge className="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300 text-xs sm:text-sm">
+          {project.status}
+        </Badge>
+        <Badge className="bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300 text-xs sm:text-sm">
+          {project.year}
+        </Badge>
+      </div>
+    </div>
+    <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed text-sm sm:text-base"> {/* description smaller */}
+      {project.description}
+    </p>
+    <div className="flex flex-wrap gap-1 sm:gap-2 mb-4 sm:mb-6">
+      {project.technologies.map((tech) => (
+        <Badge
+          key={tech}
+          className="bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700 dark:from-purple-900/30 dark:to-pink-900/30 dark:text-purple-300 text-xs sm:text-sm"
+        >
+          {tech}
+        </Badge>
+      ))}
+    </div>
+    <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
+      <Button
+        className="flex-1 bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white text-sm sm:text-base"
+        onClick={() => window.open(project.liveUrl, "_blank")}
+      >
+        <ExternalLink className="w-4 h-4 mr-2" />
+        Live Demo
+      </Button>
+      <Button
+        variant="outline"
+        className="border-purple-200 text-purple-700 hover:bg-purple-50 dark:border-purple-800 dark:text-purple-300 dark:hover:bg-purple-900/30 text-sm sm:text-base"
+        onClick={() => window.open(project.githubUrl, "_blank")}
+      >
+        <Github className="w-4 h-4" />
+      </Button>
+    </div>
+  </CardContent>
+</Card>
+
+
+
+
+
+
                 </motion.div>
               ))}
             </div>
@@ -444,7 +595,7 @@ export default function Projects() {
                   onMouseEnter={() => setHoveredProject(project.id)}
                   onMouseLeave={() => setHoveredProject(null)}
                 >
-                  <Card className="border-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl shadow-xl overflow-hidden group h-full">
+                  <Card className=" border-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl shadow-xl overflow-hidden group h-full">
                     <div className="relative overflow-hidden">
                       <Image
                         src={project.image || "/placeholder.svg"}
@@ -476,7 +627,9 @@ export default function Projects() {
                     </div>
                     <CardContent className="p-6 flex flex-col flex-1">
                       <div className="flex items-center justify-between mb-3">
-                        <h4 className="text-lg font-bold text-gray-900 dark:text-white">{project.title}</h4>
+                        <h4 className="text-lg font-bold text-gray-900 dark:text-white">
+                          {project.title}
+                        </h4>
                         <Badge className="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300 text-xs">
                           {project.status}
                         </Badge>
@@ -512,7 +665,9 @@ export default function Projects() {
                           size="sm"
                           variant="outline"
                           className="border-purple-200 text-purple-700 hover:bg-purple-50 dark:border-purple-800 dark:text-purple-300 dark:hover:bg-purple-900/30"
-                          onClick={() => window.open(project.githubUrl, "_blank")}
+                          onClick={() =>
+                            window.open(project.githubUrl, "_blank")
+                          }
                         >
                           <Github className="w-3 h-3" />
                         </Button>
@@ -552,19 +707,21 @@ export default function Projects() {
               >
                 <Code2 className="w-12 h-12 mx-auto mb-6 text-white/80" />
               </motion.div>
-              <h3 className="text-4xl font-bold mb-6">Have a Project in Mind?</h3>
+              <h3 className="text-4xl font-bold mb-6">
+                Have a Project in Mind?
+              </h3>
               <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
-                Let&apos;s collaborate and bring your ideas to life with cutting-edge technologies and modern design
-                principles.
+                Let&apos;s collaborate and bring your ideas to life with
+                cutting-edge technologies and modern design principles.
               </p>
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-10 py-4 bg-white text-purple-600 font-bold text-lg rounded-2xl shadow-2xl hover:shadow-white/25 transition-all duration-300"
                 onClick={() => {
-                  const contactSection = document.querySelector("#contact")
+                  const contactSection = document.querySelector("#contact");
                   if (contactSection) {
-                    contactSection.scrollIntoView({ behavior: "smooth" })
+                    contactSection.scrollIntoView({ behavior: "smooth" });
                   }
                 }}
               >
@@ -575,5 +732,5 @@ export default function Projects() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

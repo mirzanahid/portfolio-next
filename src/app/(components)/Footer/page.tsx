@@ -16,7 +16,7 @@ export default function Footer() {
 
   return (
     <footer className="relative py-8 border-t border-purple-100 dark:border-purple-900/30 bg-gradient-to-b from-transparent to-purple-50/50 dark:to-purple-950/10">
-      <div className="container mx-auto px-4">
+      <div className="container  mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           {/* Logo/Name */}
           <motion.div

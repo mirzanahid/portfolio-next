@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
@@ -24,13 +24,22 @@ import {
 
 // Floating particles component
 function FloatingParticles() {
-  const particles = Array.from({ length: 15 }, (_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 3 + 1,
-    duration: Math.random() * 15 + 10,
-  }));
+  const [particles] = useState(() =>
+    Array.from({ length: 40 }, (_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      size: Math.random() * 4 + 1,
+      duration: Math.random() * 15 + 10,
+    }))
+  );
+
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null; // Render nothing on first render (server side)
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -115,7 +124,7 @@ export default function Contact() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(239,68,68,0.05),transparent_50%)]" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4  relative z-10">
         {/* Enhanced Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -143,7 +152,7 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            Let's Connect
+            Let&apos;s Connect
             <motion.span
               className="block bg-gradient-to-r from-pink-500 via-red-500 to-purple-600 bg-clip-text text-transparent"
               animate={{ backgroundPosition: ["0%", "100%", "0%"] }}
@@ -160,7 +169,7 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Have a project in mind or just want to say hello? I'm always open to
+            Have a project in mind or just want to say hello? I&apos;m always open to
             discussing new opportunities and ideas.
           </motion.p>
 
@@ -193,7 +202,7 @@ export default function Contact() {
                       Get In Touch
                     </h3>
                     <p className="text-gray-600 dark:text-gray-400 mb-6">
-                      Ready to start a project or just want to chat? I'd love to
+                      Ready to start a project or just want to chat? I&apos;d love to
                       hear from you.
                     </p>
                   </div>
@@ -488,8 +497,8 @@ export default function Contact() {
                 Ready to Start Your Next Project?
               </h3>
               <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
-                I'm currently available for freelance work and exciting
-                opportunities. Let's create something amazing together!
+                I&apos;m currently available for freelance work and exciting
+                opportunities. Let&apos;s create something amazing together!
               </p>
               <motion.a
                 href="mailto:hello@yourname.com"
