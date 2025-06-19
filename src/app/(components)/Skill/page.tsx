@@ -9,9 +9,6 @@ import {
   Server,
   Database,
   Wrench,
-  Globe,
-  TrendingUp,
-  CheckCircle2,
   Sparkles,
   ArrowRight,
   Play,
@@ -471,7 +468,7 @@ export default function Skill() {
         </motion.div>
 
         {/* Enhanced Stats Section */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -528,7 +525,7 @@ export default function Skill() {
               </Card>
             </motion.div>
           ))}
-        </motion.div>
+        </motion.div> */}
 
         {/* Enhanced CTA */}
         <motion.div

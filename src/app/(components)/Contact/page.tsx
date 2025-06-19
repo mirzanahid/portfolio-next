@@ -143,7 +143,7 @@ export default function Contact() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <Card className="border-0 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl shadow-2xl overflow-hidden h-full">
-              <CardContent className="p-8">
+              <CardContent className="p-8 ">
                 <div className="flex flex-col h-full">
                   <div className="mb-6">
                     <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-purple-600 to-pink-500 flex items-center justify-center shadow-lg mb-6">
@@ -339,7 +339,7 @@ export default function Contact() {
               />
 
               <motion.div
-                className="absolute top-1/2 -right-8 w-8 h-8 bg-gradient-to-r from-red-500 to-orange-500 rounded-md opacity-70 -rotate-12"
+                className="absolute top-1/2 -right-8 w-8 h-8 bg-gradient-to-r from-red-500 to-orange-500 rounded-md opacity-70 -rotate-12 "
                 animate={{
                   x: [0, 10, 0],
                   rotate: [-12, -45, -12],

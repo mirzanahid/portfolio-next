@@ -90,7 +90,7 @@ export default function About() {
         "The abbreviation HSC typically stands for Higher Secondary Certificate. It is a secondary education qualification in Bangladesh",
     },
     {
-      degree: "econdary School Certificate",
+      degree: "Secondary School Certificate",
       institution: "Sonargaon G.R Institution",
       year: "2016",
       Department: "Commerce",
