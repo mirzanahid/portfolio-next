@@ -15,53 +15,6 @@ import {
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-// Floating particles component
-function FloatingParticles() {
-  const [particles] = useState(() =>
-    Array.from({ length: 40 }, (_, i) => ({
-      id: i,
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-      size: Math.random() * 4 + 1,
-      duration: Math.random() * 15 + 10,
-    }))
-  );
-
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null; // Render nothing on first render (server side)
-
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {particles.map((particle) => (
-        <motion.div
-          key={particle.id}
-          className="absolute rounded-full bg-gradient-to-r from-purple-400/30 to-pink-400/30"
-          style={{
-            left: `${particle.x}%`,
-            top: `${particle.y}%`,
-            width: particle.size,
-            height: particle.size,
-          }}
-          animate={{
-            y: [0, -80, 0],
-            opacity: [0, 1, 0],
-            scale: [0, 1, 0],
-          }}
-          transition={{
-            duration: particle.duration,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-        />
-      ))}
-    </div>
-  );
-}
-
 export default function Hero() {
   const [currentRole, setCurrentRole] = useState(0);
   const roles = [
@@ -97,7 +50,6 @@ export default function Hero() {
     <section className="min-h-screen  flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-slate-50 via-purple-50/50 to-slate-50 dark:from-gray-950 dark:via-purple-950/20 dark:to-gray-950">
       {/* Animated Background */}
       <div className="absolute inset-0">
-        <FloatingParticles />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(147,51,234,0.1),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(236,72,153,0.1),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_80%,rgba(239,68,68,0.1),transparent_50%)]" />
@@ -233,7 +185,7 @@ export default function Hero() {
                 size="icon"
                 className="hover:bg-purple-100 dark:hover:bg-purple-900/30 backdrop-blur-sm"
               >
-                <Link href="">
+                <Link href="https://github.com/mirzanahid">
                   <Github className="h-5 w-5 text-purple-600 dark:text-purple-400" />
                 </Link>
               </Button>
@@ -242,7 +194,7 @@ export default function Hero() {
                 size="icon"
                 className="hover:bg-pink-100 dark:hover:bg-pink-900/30 backdrop-blur-sm"
               >
-                <Link href="">
+                <Link href="https://www.linkedin.com/in/mirzanahid/ ">
                   <Linkedin className="h-5 w-5 text-pink-600 dark:text-pink-400" />
                 </Link>
               </Button>

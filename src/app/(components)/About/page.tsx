@@ -15,53 +15,6 @@ import {
   CheckCircle2,
   BookOpen,
 } from "lucide-react";
-import { useEffect, useState } from "react";
-
-function FloatingParticles() {
-  const [particles] = useState(() =>
-    Array.from({ length: 40 }, (_, i) => ({
-      id: i,
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-      size: Math.random() * 4 + 1,
-      duration: Math.random() * 15 + 10,
-    }))
-  );
-
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null; // Render nothing on first render (server side)
-
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {particles.map((particle) => (
-        <motion.div
-          key={particle.id}
-          className="absolute rounded-full bg-gradient-to-r from-purple-400/30 to-pink-400/30"
-          style={{
-            left: `${particle.x}%`,
-            top: `${particle.y}%`,
-            width: particle.size,
-            height: particle.size,
-          }}
-          animate={{
-            y: [0, -80, 0],
-            opacity: [0, 1, 0],
-            scale: [0, 1, 0],
-          }}
-          transition={{
-            duration: particle.duration,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-        />
-      ))}
-    </div>
-  );
-}
 
 export default function About() {
   // const experiences = [
@@ -90,11 +43,11 @@ export default function About() {
 
   const courses = [
     {
-      degree: "Web Design Course",
-      institution: "Creative It",
-      year: "2020",
+      degree: "Next Level Web development",
+      institution: "Programming Hero",
+      year: "2025",
       description:
-        "Specialized in Web Design with expertise in HTML, CSS, Bootstrap, jQuery, and Responsive Design.",
+        "Specialized in MERN Stack Development with expertise in MongoDB, Express.js, React, and Node.js",
     },
     {
       degree: "Complete Web Development Course With Jhankar Mahbub",
@@ -104,12 +57,13 @@ export default function About() {
         "Specialized in Full-Stack Web Development with proficiency in JavaScript, React, Firebase, Stripe, Tailwind CSS, DaisyUI, and Bootstrap",
     },
     {
-      degree: "Next Level Web development",
-      institution: "Programming Hero",
-      year: "2025",
+      degree: "Web Design Course",
+      institution: "Creative It",
+      year: "2020",
       description:
-        "Specialized in MERN Stack Development with expertise in MongoDB, Express.js, React, and Node.js",
+        "Specialized in Web Design with expertise in HTML, CSS, Bootstrap, jQuery, and Responsive Design.",
     },
+
     // {
     //   degree: "Bachelor's in Software Engineering",
     //   institution: "State University",
@@ -120,11 +74,28 @@ export default function About() {
   ];
   const education = [
     {
-      degree: "Bachelor of Business Administration in Management",
+      degree: "Bachelor of Business Administration ",
       institution: "National University",
-      year: "2022",
+      year: "2025",
+      Department: "Management",
       description:
         "Specialized in Business Management, Strategic Planning, and Organizational Leadership with exposure to Business Analytics and Digital Tools.",
+    },
+    {
+      degree: "Higher Secondary Certificate",
+      institution: "Sonargaon G.R Institution",
+      year: "2018",
+      Department: "Commerce",
+      description:
+        "The abbreviation HSC typically stands for Higher Secondary Certificate. It is a secondary education qualification in Bangladesh",
+    },
+    {
+      degree: "econdary School Certificate",
+      institution: "Sonargaon G.R Institution",
+      year: "2016",
+      Department: "Commerce",
+      description:
+        "In the context of education, SSC typically stands for Secondary School Certificate. It's a public examination taken by students in the final year of secondary school, often the 10th grade.",
     },
     // {
     //   degree: "Bachelor's in Software Engineering",
@@ -141,8 +112,7 @@ export default function About() {
       className="py-10 lg:pt-20 lg:pb-10 relative overflow-hidden bg-gradient-to-br from-slate-50 via-purple-50/50 to-slate-50 dark:from-gray-950 dark:via-purple-950/20 dark:to-gray-950"
     >
       {/* Animated Background */}
-      <div className="absolute inset-0">
-        <FloatingParticles />
+      <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(147,51,234,0.1),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(236,72,153,0.1),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_80%,rgba(239,68,68,0.1),transparent_50%)]" />
@@ -187,10 +157,11 @@ export default function About() {
               <div className="absolute -inset-4 bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 rounded-xl opacity-30 blur-lg animate-pulse"></div>
               <div className=" relative aspect-square overflow-hidden rounded-xl border-2 border-pink-200 dark:border-pink-900/50">
                 <Image
-                  src="/me3..jpg"
-                  alt="Mirza Nahid"
+                  src="/me3.jpg"
+                  alt="Mirza Nahid - MERN Stack Developer Portrait"
                   width={600}
                   height={600}
+                  loading="lazy"
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-pink-900/80 to-transparent"></div>
@@ -277,16 +248,16 @@ export default function About() {
                 webworld to find and gain knowlege, experimenting with
                 photography, exploring local coffee shops or watching movies as
                 i am a movie lover. I believe in continuous learning and
-                building stunning projects
+                building stunning and impactful projects.
               </p>
             </div>
 
             {/* Tabs for Experience and Education */}
-            <Tabs defaultValue="courses" className="w-full">
-              <TabsList className="grid w-full grid-cols-2 bg-gradient-to-r from-purple-100/50 to-pink-100/50 dark:from-purple-900/30 dark:to-pink-900/30">
+            <Tabs defaultValue="education" className="w-full">
+              <TabsList className="grid w-full grid-cols-2 bg-gradient-to-r from-purple-100/50 to-pink-100/50 dark:from-purple-900/30 dark:to-pink-900/30 ">
                 <TabsTrigger
                   value="education"
-                  className="data-[state=active]:bg-white dark:data-[state=active]:bg-gray-800"
+                  className="data-[state=active]:bg-white dark:data-[state=active]:bg-gray-800 cursor-pointer"
                 >
                   <GraduationCap className="w-4 h-4 mr-2" /> Education
                 </TabsTrigger>
@@ -298,7 +269,7 @@ export default function About() {
                 </TabsTrigger> */}
                 <TabsTrigger
                   value="courses"
-                  className="data-[state=active]:bg-white dark:data-[state=active]:bg-gray-800"
+                  className="data-[state=active]:bg-white dark:data-[state=active]:bg-gray-800 cursor-pointer"
                 >
                   <BookOpen className="w-4 h-4 mr-2" /> Courses
                 </TabsTrigger>
@@ -335,7 +306,7 @@ export default function About() {
               <TabsContent value="courses" className="mt-6 space-y-6">
                 {courses.map((edu, index) => (
                   <motion.div
-                    key={index}
+                    key={`${edu.degree}-${edu.year}`}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -452,7 +423,7 @@ export default function About() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-6 py-3 bg-white text-pink-600 font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="px-6 py-3 bg-white text-pink-600 font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
                   onClick={() => {
                     const contactSection = document.querySelector("#contact");
                     if (contactSection) {

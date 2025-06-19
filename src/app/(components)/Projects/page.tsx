@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
@@ -9,123 +9,91 @@ import {
   ExternalLink,
   Github,
   Code2,
-  Globe,
-  Server,
-  Database,
   Sparkles,
   Eye,
   Star,
-  Calendar,
   Users,
-  TrendingUp,
-  Zap,
+  LayoutGrid,
+  User,
+  Briefcase,
 } from "lucide-react";
 
-// Floating particles component
-function FloatingParticles() {
-  const [particles] = useState(() =>
-    Array.from({ length: 40 }, (_, i) => ({
-      id: i,
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-      size: Math.random() * 4 + 1,
-      duration: Math.random() * 15 + 10,
-    }))
-  );
-
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null; // Render nothing on first render (server side)
-
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {particles.map((particle) => (
-        <motion.div
-          key={particle.id}
-          className="absolute rounded-full bg-gradient-to-r from-purple-400/30 to-pink-400/30"
-          style={{
-            left: `${particle.x}%`,
-            top: `${particle.y}%`,
-            width: particle.size,
-            height: particle.size,
-          }}
-          animate={{
-            y: [0, -80, 0],
-            opacity: [0, 1, 0],
-            scale: [0, 1, 0],
-          }}
-          transition={{
-            duration: particle.duration,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-        />
-      ))}
-    </div>
-  );
-}
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState("all");
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
 
   const categories = [
-    { id: "all", name: "All Projects", icon: Globe, count: 12 },
-    { id: "frontend", name: "Frontend", icon: Code2, count: 5 },
-    { id: "fullstack", name: "Full Stack", icon: Server, count: 4 },
-    { id: "backend", name: "Backend", icon: Database, count: 3 },
+    { id: "all", name: "All Projects", icon: LayoutGrid, count: 12 },
+    { id: "personal", name: "Personal", icon: User, count: 3 },
+    { id: "team", name: "Team", icon: Users, count: 2 },
+    { id: "client", name: "Client", icon: Briefcase, count: 7 },
   ];
 
   const projects = [
     {
       id: "1",
-      title: "E-Commerce Platform",
+      title: "Furniture Mart",
       description:
-        "A modern e-commerce platform with real-time inventory, payment processing, and admin dashboard.",
-      category: "fullstack",
+        "FurnitureMart is a ecommerce website where you will find mordern and stylish furnitures",
+      category: "personal",
       technologies: [
-        "Next.js",
-        "TypeScript",
-        "Stripe",
+        "React",
+        "express.js",
         "MongoDB",
         "Tailwind CSS",
+        "Firebase",
+        "JWT",
       ],
-      image: "/placeholder.svg?height=400&width=600",
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/example",
-      featured: true,
+      image: "/projects/furnituremart.png",
+      liveUrl: "https://furnituremart-58a65.web.app/",
+      githubUrl: "https://github.com/mirzanahid/furniture-mart-client",
+      featured: false,
       stats: { views: "2.5K", stars: 45, users: "500+" },
       year: "2024",
       status: "Live",
     },
     {
       id: "2",
-      title: "Task Management App",
+      title: "Pixel Photography",
       description:
-        "Collaborative task management with real-time updates, drag-and-drop functionality, and team collaboration.",
-      category: "frontend",
-      technologies: ["React", "Redux Toolkit", "Framer Motion", "Socket.io"],
-      image: "/placeholder.svg?height=400&width=600",
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/example",
-      featured: true,
+        "PixelPhotography is a wedding photography website where you can get so many services and read free blogs about photography.",
+      category: "personal",
+      technologies: [
+        "React",
+        "Node.js",
+        "express.js",
+        "MongoDB",
+        "Tailwind CSS",
+        "Firebase",
+        "JWT",
+      ],
+      image: "/projects/photography.png",
+      liveUrl: "https://pixels-photography.web.app/",
+      githubUrl: "https://github.com/mirzanahid/pixel-photgraphy-client",
+      featured: false,
       stats: { views: "1.8K", stars: 32, users: "200+" },
       year: "2024",
       status: "Live",
     },
     {
       id: "3",
-      title: "REST API Gateway",
+      title: "Tech Tutor",
       description:
-        "Scalable API gateway with authentication, rate limiting, and microservices integration.",
-      category: "backend",
-      technologies: ["Node.js", "Express", "Redis", "PostgreSQL", "Docker"],
-      image: "/placeholder.svg?height=400&width=600",
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/example",
+        "TechTutor is online learning single web application. Where student can purchase premium courses and read free blogs.",
+      category: "personal",
+      technologies: [
+        "React",
+        "Node.js",
+        "express.js",
+        "MongoDB",
+        "Tailwind CSS",
+        "Firebase",
+        "JWT",
+      ],
+      image: "/projects/techtutore.png",
+      liveUrl: "https://tech-tutor-d3a50.web.app/",
+      githubUrl: "https://github.com/mirzanahid/tech-tutor-client",
       featured: false,
       stats: { views: "1.2K", stars: 28, users: "100+" },
       year: "2023",
@@ -133,14 +101,21 @@ export default function Projects() {
     },
     {
       id: "4",
-      title: "Social Media Dashboard",
+      title: "Swap Nest",
       description:
-        "Analytics dashboard for social media management with real-time data visualization and reporting.",
-      category: "fullstack",
-      technologies: ["Next.js", "Chart.js", "Prisma", "Supabase"],
-      image: "/placeholder.svg?height=400&width=600",
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/example",
+        "Swap Nest is a modern web platform designed to simplify the exchange of second-hand goods. User can exchange their second-hand goods with each other",
+      category: "team",
+      technologies: [
+        "Next.js",
+        "Mongodb",
+        "Node.js",
+        "ShadCN UI",
+        "Tailwind CSS",
+        "Mongoose",
+      ],
+      image: "/projects/swapnest.png",
+      liveUrl: "https://swap-nest-client.vercel.app/",
+      githubUrl: "#",
       featured: true,
       stats: { views: "3.1K", stars: 67, users: "800+" },
       year: "2024",
@@ -148,29 +123,127 @@ export default function Projects() {
     },
     {
       id: "5",
-      title: "Portfolio Website",
+      title: "Papyrus",
       description:
-        "Modern portfolio website with animations, dark mode, and responsive design.",
-      category: "frontend",
-      technologies: ["React", "Tailwind CSS", "Framer Motion", "Vite"],
-      image: "/placeholder.svg?height=400&width=600",
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/example",
-      featured: false,
+        "Papyrus is an e-commerce platform for stationery products. It allows users to browse a wide range of stationery items, add them to cart, and make secure payments.",
+      category: "team",
+      technologies: [
+        "Next.js",
+        "Shurjopay",
+        "Framer Motion",
+        "Vite",
+        "ShadCN UI",
+        "Tailwind CSS",
+        "Mongoose",
+      ],
+      image: "/projects/papyrus.png",
+      liveUrl: "https://papyrus-client.vercel.app/",
+      githubUrl: "#",
+      featured: true,
       stats: { views: "900", stars: 15, users: "50+" },
       year: "2023",
       status: "Live",
     },
     {
       id: "6",
-      title: "Real-time Chat App",
+      title: "Get a Quote",
       description:
-        "Real-time messaging application with file sharing, emoji reactions, and group chats.",
-      category: "fullstack",
-      technologies: ["Next.js", "Socket.io", "MongoDB", "Cloudinary"],
-      image: "/placeholder.svg?height=400&width=600",
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/example",
+        "Cheapest Home and Car Insurance Companies in Florida & California",
+      category: "client",
+      technologies: ["Html", "Bootstrap", "Jquery"],
+      image: "/projects/getaqoute.png",
+      liveUrl: "https://www.getaquote.com/",
+      githubUrl: "#",
+      featured: false,
+      stats: { views: "1.5K", stars: 38, users: "300+" },
+      year: "2024",
+      status: "Live",
+    },
+    {
+      id: "7",
+      title: "HST, A MultiPlan Company",
+      description:
+        "HST's Value-Driven Health Plan services (VDHPs) are reference-based pricing services for employers that help to control the cost of care.",
+      category: "client",
+      technologies: ["Html", "Bootstrap", "Jquery"],
+      image: "/projects/hsthealthcare.png",
+      liveUrl: "https://www.hstechnology.com/",
+      githubUrl: "#",
+      featured: false,
+      stats: { views: "1.5K", stars: 38, users: "300+" },
+      year: "2024",
+      status: "Live",
+    },
+    {
+      id: "8",
+      title: "Taste Nomada",
+      description:
+        "NOMADA is the latest, most mobile expression of that unerring pursuit of culinary excellence—it’s world-class flavor filled with the roaming soul of California",
+      category: "client",
+      technologies: ["Html", "Bootstrap", "Jquery"],
+      image: "/projects/nomada.png",
+      liveUrl: "https://www.tastenomada.com/",
+      githubUrl: "#",
+      featured: false,
+      stats: { views: "1.5K", stars: 38, users: "300+" },
+      year: "2024",
+      status: "Live",
+    },
+    {
+      id: "9",
+      title: "AYSO Irvine 213",
+      description:
+        "AYSO Irvine Region 213 - Serving Irvine for 40 years · Fall Soccer. Register for Fall Soccer today! · Become A Coach. Learn how to become a soccer coach",
+      category: "client",
+      technologies: ["Html", "Bootstrap", "Jquery"],
+      image: "/projects/aysoirvine.png",
+      liveUrl: "https://www.ayso213.org/",
+      githubUrl: "#",
+      featured: false,
+      stats: { views: "1.5K", stars: 38, users: "300+" },
+      year: "2024",
+      status: "Live",
+    },
+    {
+      id: "10",
+      title: "Enviro Check",
+      description:
+        "For environmental testing, you need someone who is dependable, reliable, and who you know will get the job done right.",
+      category: "client",
+      technologies: ["Html", "Bootstrap", "Jquery"],
+      image: "/projects/envirocheck.png",
+      liveUrl: "https://www.envirocheck.com/",
+      githubUrl: "#",
+      featured: false,
+      stats: { views: "1.5K", stars: 38, users: "300+" },
+      year: "2024",
+      status: "Live",
+    },
+    {
+      id: "11",
+      title: "Saunatica",
+      description:
+        "Offering infrared sauna, red-light, salt and HALO therapy, Saunatica has the right solution for everyone",
+      category: "client",
+      technologies: ["Html", "Bootstrap", "Jquery"],
+      image: "/projects/saunatica.png",
+      liveUrl: "https://www.saunatica.com/",
+      githubUrl: "#",
+      featured: false,
+      stats: { views: "1.5K", stars: 38, users: "300+" },
+      year: "2024",
+      status: "Live",
+    },
+    {
+      id: "12",
+      title: "Ihya Vakfi",
+      description:
+        "Emergency relief for the families affected by the demolition and displacement.",
+      category: "client",
+      technologies: ["React.js", "Material", "Vite"],
+      image: "/projects/ihayabagis.png",
+      liveUrl: "https://bagis.ihyavakfi.org.tr/",
+      githubUrl: "#",
       featured: false,
       stats: { views: "1.5K", stars: 38, users: "300+" },
       year: "2024",
@@ -191,8 +264,7 @@ export default function Projects() {
       className="py-20 relative overflow-hidden bg-gradient-to-br from-slate-50 via-purple-50/50 to-slate-50 dark:from-gray-950 dark:via-purple-950/20 dark:to-gray-950"
     >
       {/* Animated Background */}
-      <div className="absolute inset-0">
-        <FloatingParticles />
+      <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(147,51,234,0.1),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(236,72,153,0.1),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_80%,rgba(239,68,68,0.1),transparent_50%)]" />
@@ -257,70 +329,6 @@ export default function Projects() {
         </motion.div>
 
         {/* Project Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="grid md:grid-cols-4 gap-6 mb-16"
-        >
-          {[
-            {
-              icon: TrendingUp,
-              value: "50+",
-              label: "Projects Completed",
-              color: "from-purple-600 to-pink-500",
-            },
-            {
-              icon: Users,
-              value: "2K+",
-              label: "Active Users",
-              color: "from-pink-500 to-red-500",
-            },
-            {
-              icon: Star,
-              value: "200+",
-              label: "GitHub Stars",
-              color: "from-red-500 to-purple-600",
-            },
-            {
-              icon: Zap,
-              value: "99%",
-              label: "Client Satisfaction",
-              color: "from-purple-600 to-blue-500",
-            },
-          ].map((stat, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -5, scale: 1.02 }}
-            >
-              <Card className="border-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl shadow-xl overflow-hidden group">
-                <CardContent className="p-6 text-center relative">
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
-                  />
-                  <motion.div
-                    className={`w-12 h-12 mx-auto mb-4 rounded-xl bg-gradient-to-br ${stat.color} flex items-center justify-center shadow-lg`}
-                    whileHover={{ rotate: 360, scale: 1.1 }}
-                    transition={{ duration: 0.6 }}
-                  >
-                    <stat.icon className="w-6 h-6 text-white" />
-                  </motion.div>
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
-                    {stat.value}
-                  </h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
-                    {stat.label}
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </motion.div>
 
         {/* Filter Categories */}
         <motion.div
@@ -344,7 +352,7 @@ export default function Projects() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setActiveFilter(category.id)}
-                className={`group px-6 py-3 rounded-2xl transition-all duration-300 flex items-center space-x-3 ${
+                className={`group px-6 py-3 rounded-2xl transition-all duration-300 flex items-center space-x-3  cursor-pointer ${
                   isActive
                     ? "bg-gradient-to-r from-purple-600 to-pink-500 text-white shadow-lg shadow-purple-500/25"
                     : "bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-700 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-800 border border-purple-200 dark:border-purple-800"
@@ -390,9 +398,6 @@ export default function Projects() {
                   onMouseEnter={() => setHoveredProject(project.id)}
                   onMouseLeave={() => setHoveredProject(null)}
                 >
-
-
-
                   {/* <Card className="border-0 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl shadow-2xl overflow-hidden group">
                     <div className="relative overflow-hidden">
                       <Image
@@ -476,93 +481,97 @@ export default function Projects() {
                     </CardContent>
                   </Card> */}
 
-
-<Card className="border-0 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl shadow-2xl overflow-hidden group">
-  <div className="relative overflow-hidden">
-    <Image
-      src={project.image || "/placeholder.svg"}
-      alt={project.title}
-      width={600}
-      height={400}
-      className="w-full object-cover transition-transform duration-500 group-hover:scale-110 sm:h-64 h-48" // smaller height on mobile
-    />
-    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-    <div className="absolute top-4 right-4">
-      <Badge className="bg-gradient-to-r from-purple-600 to-pink-500 text-white text-xs sm:text-sm"> {/* text smaller on mobile */}
-        <Star className="w-3 h-3 mr-1" />
-        Featured
-      </Badge>
-    </div>
-    <div className="absolute bottom-4 left-4 right-4">
-      <div className="flex flex-wrap items-center justify-between text-white text-xs sm:text-sm"> {/* flex-wrap for mobile */}
-        <div className="flex items-center space-x-2 sm:space-x-4 text-xs sm:text-sm">
-          <span className="flex items-center">
-            <Eye className="w-4 h-4 mr-1" />
-            {project.stats.views}
-          </span>
-          <span className="flex items-center">
-            <Star className="w-4 h-4 mr-1" />
-            {project.stats.stars}
-          </span>
-          <span className="flex items-center">
-            <Users className="w-4 h-4 mr-1" />
-            {project.stats.users}
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <CardContent className="p-4 sm:p-6"> {/* padding reduced on mobile */}
-    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-3 gap-2"> {/* stack on mobile */}
-      <h4 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white"> {/* slightly smaller heading */}
-        {project.title}
-      </h4>
-      <div className="flex items-center space-x-1 sm:space-x-2">
-        <Badge className="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300 text-xs sm:text-sm">
-          {project.status}
-        </Badge>
-        <Badge className="bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300 text-xs sm:text-sm">
-          {project.year}
-        </Badge>
-      </div>
-    </div>
-    <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed text-sm sm:text-base"> {/* description smaller */}
-      {project.description}
-    </p>
-    <div className="flex flex-wrap gap-1 sm:gap-2 mb-4 sm:mb-6">
-      {project.technologies.map((tech) => (
-        <Badge
-          key={tech}
-          className="bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700 dark:from-purple-900/30 dark:to-pink-900/30 dark:text-purple-300 text-xs sm:text-sm"
-        >
-          {tech}
-        </Badge>
-      ))}
-    </div>
-    <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
-      <Button
-        className="flex-1 bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white text-sm sm:text-base"
-        onClick={() => window.open(project.liveUrl, "_blank")}
-      >
-        <ExternalLink className="w-4 h-4 mr-2" />
-        Live Demo
-      </Button>
-      <Button
-        variant="outline"
-        className="border-purple-200 text-purple-700 hover:bg-purple-50 dark:border-purple-800 dark:text-purple-300 dark:hover:bg-purple-900/30 text-sm sm:text-base"
-        onClick={() => window.open(project.githubUrl, "_blank")}
-      >
-        <Github className="w-4 h-4" />
-      </Button>
-    </div>
-  </CardContent>
-</Card>
-
-
-
-
-
-
+                  <Card className="border-0 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl shadow-2xl overflow-hidden group">
+                    <div className="relative overflow-hidden">
+                      <Image
+                        src={project.image || "/placeholder.svg"}
+                        alt={project.title}
+                        width={600}
+                        height={400}
+                        className="w-full object-cover transition-transform duration-500 group-hover:scale-110 sm:h-80 h-48" // smaller height on mobile
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                      <div className="absolute top-4 right-4">
+                        <Badge className="bg-gradient-to-r from-purple-600 to-pink-500 text-white text-xs sm:text-sm">
+                          {" "}
+                          {/* text smaller on mobile */}
+                          <Star className="w-3 h-3 mr-1" />
+                          Featured
+                        </Badge>
+                      </div>
+                      <div className="absolute bottom-4 left-4 right-4">
+                        <div className="flex flex-wrap items-center justify-between text-white text-xs sm:text-sm">
+                          {" "}
+                          {/* flex-wrap for mobile */}
+                          <div className=" items-center space-x-2 sm:space-x-4 text-xs sm:text-sm hidden">
+                            <span className="flex items-center">
+                              <Eye className="w-4 h-4 mr-1" />
+                              {project.stats.views}
+                            </span>
+                            <span className="flex items-center">
+                              <Star className="w-4 h-4 mr-1" />
+                              {project.stats.stars}
+                            </span>
+                            <span className="flex items-center">
+                              <Users className="w-4 h-4 mr-1" />
+                              {project.stats.users}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <CardContent className="p-4 sm:p-6">
+                      {" "}
+                      {/* padding reduced on mobile */}
+                      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-3 gap-2">
+                        {" "}
+                        {/* stack on mobile */}
+                        <h4 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
+                          {" "}
+                          {/* slightly smaller heading */}
+                          {project.title}
+                        </h4>
+                        <div className="flex items-center space-x-1 sm:space-x-2">
+                          <Badge className="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300 text-xs sm:text-sm">
+                            {project.status}
+                          </Badge>
+                        </div>
+                      </div>
+                      <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed text-sm sm:text-base">
+                        {" "}
+                        {/* description smaller */}
+                        {project.description}
+                      </p>
+                      <div className="flex flex-wrap gap-1 sm:gap-2 mb-4 sm:mb-6">
+                        {project.technologies.map((tech) => (
+                          <Badge
+                            key={tech}
+                            className="bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700 dark:from-purple-900/30 dark:to-pink-900/30 dark:text-purple-300 text-xs sm:text-sm"
+                          >
+                            {tech}
+                          </Badge>
+                        ))}
+                      </div>
+                      <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
+                        <Button
+                          className="cursor-pointer flex-1 bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white text-sm sm:text-base"
+                          onClick={() => window.open(project.liveUrl, "_blank")}
+                        >
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          Live Demo
+                        </Button>
+                        <Button
+                          variant="outline"
+                          className="cursor-pointer border-purple-200 text-purple-700 hover:bg-purple-50 dark:border-purple-800 dark:text-purple-300 dark:hover:bg-purple-900/30 text-sm sm:text-base"
+                          onClick={() =>
+                            window.open(project.githubUrl, "_blank")
+                          }
+                        >
+                          <Github className="w-4 h-4" />
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
                 </motion.div>
               ))}
             </div>
@@ -602,7 +611,7 @@ export default function Projects() {
                         alt={project.title}
                         width={400}
                         height={250}
-                        className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                        className="w-full h-60 object-cover transition-transform duration-500 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
                       {project.featured && (
@@ -614,10 +623,6 @@ export default function Projects() {
                       )}
                       <div className="absolute bottom-3 left-3 right-3">
                         <div className="flex items-center justify-between text-white text-sm">
-                          <span className="flex items-center">
-                            <Calendar className="w-3 h-3 mr-1" />
-                            {project.year}
-                          </span>
                           <span className="flex items-center">
                             <Star className="w-3 h-3 mr-1" />
                             {project.stats.stars}
@@ -655,22 +660,26 @@ export default function Projects() {
                       <div className="flex space-x-2">
                         <Button
                           size="sm"
-                          className="flex-1 bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white text-xs"
+                          className="flex-1 bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white text-xs cursor-pointer"
                           onClick={() => window.open(project.liveUrl, "_blank")}
                         >
                           <ExternalLink className="w-3 h-3 mr-1" />
                           Demo
                         </Button>
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          className="border-purple-200 text-purple-700 hover:bg-purple-50 dark:border-purple-800 dark:text-purple-300 dark:hover:bg-purple-900/30"
-                          onClick={() =>
-                            window.open(project.githubUrl, "_blank")
-                          }
-                        >
-                          <Github className="w-3 h-3" />
-                        </Button>
+                        {project.githubUrl == "#" ? (
+                          ""
+                        ) : (
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            className="border-purple-200 text-purple-700 hover:bg-purple-50 dark:border-purple-800 dark:text-purple-300 dark:hover:bg-purple-900/30 cursor-pointer"
+                            onClick={() =>
+                              window.open(project.githubUrl, "_blank")
+                            }
+                          >
+                            <Github className="w-3 h-3" />
+                          </Button>
+                        )}
                       </div>
                     </CardContent>
                   </Card>

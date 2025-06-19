@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
@@ -28,43 +28,43 @@ const skillCategories = {
     skills: [
       {
         name: "React.js",
-        level: 95,
+        level: 70,
         icon: "⚛️",
         description: "Component-based UI library",
       },
       {
         name: "Next.js",
-        level: 92,
+        level: 60,
         icon: "▲",
         description: "Full-stack React framework",
       },
       {
         name: "TypeScript",
-        level: 88,
+        level: 60,
         icon: "📘",
         description: "Type-safe JavaScript",
       },
       {
         name: "JavaScript",
-        level: 95,
+        level: 70,
         icon: "🟨",
         description: "Modern ES6+ features",
       },
       {
         name: "Tailwind CSS",
-        level: 90,
+        level: 80,
         icon: "🎨",
         description: "Utility-first CSS framework",
       },
-      {
-        name: "Framer Motion",
-        level: 85,
-        icon: "🎭",
-        description: "Production-ready animations",
-      },
+      // {
+      //   name: "Framer Motion",
+      //   level: 85,
+      //   icon: "🎭",
+      //   description: "Production-ready animations",
+      // },
       {
         name: "Redux Toolkit",
-        level: 82,
+        level: 60,
         icon: "🔄",
         description: "Predictable state container",
       },
@@ -85,52 +85,52 @@ const skillCategories = {
     skills: [
       {
         name: "Node.js",
-        level: 90,
+        level: 60,
         icon: "🟢",
         description: "JavaScript runtime environment",
       },
       {
         name: "Express.js",
-        level: 88,
+        level: 60,
         icon: "🚀",
         description: "Fast web framework",
       },
-      {
-        name: "Next.js API",
-        level: 85,
-        icon: "🔗",
-        description: "Serverless API routes",
-      },
-      {
-        name: "GraphQL",
-        level: 75,
-        icon: "🔺",
-        description: "Query language for APIs",
-      },
-      {
-        name: "REST APIs",
-        level: 92,
-        icon: "🌐",
-        description: "RESTful web services",
-      },
-      {
-        name: "Socket.io",
-        level: 70,
-        icon: "⚡",
-        description: "Real-time communication",
-      },
-      {
-        name: "Serverless",
-        level: 78,
-        icon: "☁️",
-        description: "Cloud functions",
-      },
-      {
-        name: "Microservices",
-        level: 72,
-        icon: "🧩",
-        description: "Distributed architecture",
-      },
+      // {
+      //   name: "Next.js API",
+      //   level: 70,
+      //   icon: "🔗",
+      //   description: "Serverless API routes",
+      // },
+      // {
+      //   name: "GraphQL",
+      //   level: 75,
+      //   icon: "🔺",
+      //   description: "Query language for APIs",
+      // },
+      // {
+      //   name: "REST APIs",
+      //   level: 92,
+      //   icon: "🌐",
+      //   description: "RESTful web services",
+      // },
+      // {
+      //   name: "Socket.io",
+      //   level: 70,
+      //   icon: "⚡",
+      //   description: "Real-time communication",
+      // },
+      // {
+      //   name: "Serverless",
+      //   level: 78,
+      //   icon: "☁️",
+      //   description: "Cloud functions",
+      // },
+      // {
+      //   name: "Microservices",
+      //   level: 72,
+      //   icon: "🧩",
+      //   description: "Distributed architecture",
+      // },
     ],
   },
   database: {
@@ -146,42 +146,42 @@ const skillCategories = {
         icon: "🍃",
         description: "NoSQL document database",
       },
-      {
-        name: "PostgreSQL",
-        level: 80,
-        icon: "🐘",
-        description: "Advanced relational database",
-      },
-      {
-        name: "Prisma ORM",
-        level: 82,
-        icon: "💎",
-        description: "Next-generation ORM",
-      },
-      {
-        name: "Redis",
-        level: 70,
-        icon: "🔴",
-        description: "In-memory data store",
-      },
-      {
-        name: "Supabase",
-        level: 80,
-        icon: "⚡",
-        description: "Open source Firebase alternative",
-      },
+      // {
+      //   name: "PostgreSQL",
+      //   level: 80,
+      //   icon: "🐘",
+      //   description: "Advanced relational database",
+      // },
+      // {
+      //   name: "Prisma ORM",
+      //   level: 82,
+      //   icon: "💎",
+      //   description: "Next-generation ORM",
+      // },
+      // {
+      //   name: "Redis",
+      //   level: 70,
+      //   icon: "🔴",
+      //   description: "In-memory data store",
+      // },
+      // {
+      //   name: "Supabase",
+      //   level: 80,
+      //   icon: "⚡",
+      //   description: "Open source Firebase alternative",
+      // },
       {
         name: "Firebase",
         level: 78,
         icon: "🔥",
         description: "Google's app platform",
       },
-      {
-        name: "MySQL",
-        level: 75,
-        icon: "🐬",
-        description: "Popular relational database",
-      },
+      // {
+      //   name: "MySQL",
+      //   level: 75,
+      //   icon: "🐬",
+      //   description: "Popular relational database",
+      // },
       {
         name: "Mongoose",
         level: 85,
@@ -203,93 +203,48 @@ const skillCategories = {
         icon: "🐙",
         description: "Version control system",
       },
-      {
-        name: "Docker",
-        level: 75,
-        icon: "🐳",
-        description: "Containerization platform",
-      },
-      {
-        name: "AWS",
-        level: 70,
-        icon: "☁️",
-        description: "Cloud computing services",
-      },
+      // {
+      //   name: "Docker",
+      //   level: 75,
+      //   icon: "🐳",
+      //   description: "Containerization platform",
+      // },
+      // {
+      //   name: "AWS",
+      //   level: 70,
+      //   icon: "☁️",
+      //   description: "Cloud computing services",
+      // },
       {
         name: "Vercel",
         level: 88,
         icon: "▲",
         description: "Frontend deployment platform",
       },
-      { name: "Webpack", level: 80, icon: "📦", description: "Module bundler" },
-      {
-        name: "Jest",
-        level: 78,
-        icon: "🧪",
-        description: "JavaScript testing framework",
-      },
-      {
-        name: "CI/CD",
-        level: 72,
-        icon: "🔄",
-        description: "Continuous integration",
-      },
-      {
-        name: "Linux",
-        level: 85,
-        icon: "💻",
-        description: "Unix-like operating system",
-      },
+      // { name: "Webpack", level: 80, icon: "📦", description: "Module bundler" },
+      // {
+      //   name: "Jest",
+      //   level: 78,
+      //   icon: "🧪",
+      //   description: "JavaScript testing framework",
+      // },
+      // {
+      //   name: "CI/CD",
+      //   level: 72,
+      //   icon: "🔄",
+      //   description: "Continuous integration",
+      // },
+      // {
+      //   name: "Linux",
+      //   level: 85,
+      //   icon: "💻",
+      //   description: "Unix-like operating system",
+      // },
     ],
   },
 };
 
-// Floating particles component
-function FloatingParticles() {
-  const [particles] = useState(() =>
-    Array.from({ length: 40 }, (_, i) => ({
-      id: i,
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-      size: Math.random() * 4 + 1,
-      duration: Math.random() * 15 + 10,
-    }))
-  );
 
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null; // Render nothing on first render (server side)
-
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {particles.map((particle) => (
-        <motion.div
-          key={particle.id}
-          className="absolute rounded-full bg-gradient-to-r from-purple-400/30 to-pink-400/30"
-          style={{
-            left: `${particle.x}%`,
-            top: `${particle.y}%`,
-            width: particle.size,
-            height: particle.size,
-          }}
-          animate={{
-            y: [0, -80, 0],
-            opacity: [0, 1, 0],
-            scale: [0, 1, 0],
-          }}
-          transition={{
-            duration: particle.duration,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-        />
-      ))}
-    </div>
-  );
-}
 
 export default function Skill() {
   const [activeCategory, setActiveCategory] = useState("frontend");
@@ -299,7 +254,6 @@ export default function Skill() {
     <section className="py-20 relative overflow-hidden bg-gradient-to-br from-slate-50 via-purple-50/50 to-slate-50 dark:from-gray-950 dark:via-purple-950/20 dark:to-gray-950">
       {/* Animated Background */}
       <div className="absolute inset-0">
-        <FloatingParticles />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(147,51,234,0.1),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(236,72,153,0.1),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(59,130,246,0.1),transparent_50%)]" />
@@ -614,7 +568,7 @@ export default function Skill() {
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="group px-10 py-4 bg-white text-purple-600 font-bold text-lg rounded-2xl shadow-2xl hover:shadow-white/25 transition-all duration-300 flex items-center mx-auto"
+                className="group px-10 py-4 bg-white text-purple-600 font-bold text-lg rounded-2xl shadow-2xl hover:shadow-white/25 transition-all duration-300 flex items-center mx-auto cursor-pointer"
                 onClick={() => {
                   const contactSection = document.querySelector("#contact");
                   if (contactSection) {

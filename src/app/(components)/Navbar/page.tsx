@@ -249,20 +249,24 @@ export default function AnimatedNavbar() {
                   size="icon"
                   className="hidden lg:flex hover:bg-purple-100 dark:hover:bg-purple-900/30 backdrop-blur-sm"
                 >
-                  <Github className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                  <Link href="https://github.com/mirzanahid">
+                    <Github className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                  </Link>
                 </Button>
                 <Button
                   variant="ghost"
                   size="icon"
                   className="hidden lg:flex hover:bg-pink-100 dark:hover:bg-pink-900/30 backdrop-blur-sm"
                 >
-                  <Linkedin className="w-4 h-4 text-pink-600 dark:text-pink-400" />
+                  <Link href="https://www.linkedin.com/in/mirzanahid/">
+                    <Linkedin className="w-4 h-4 text-pink-600 dark:text-pink-400" />
+                  </Link>
                 </Button>
               </div>
 
               <Button
                 onClick={() => handleNavClick("#contact", "contact")}
-                className="bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white transition-all duration-300 transform hover:scale-105 shadow-lg cursor-pointer"
               >
                 Let&apos;s Talk
               </Button>

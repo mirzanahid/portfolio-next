@@ -9,6 +9,7 @@ const config = {
     "./app/**/*.{ts,tsx}",
     "./*.{ts,tsx}",
     "*.{js,ts,jsx,tsx,mdx}",
+    "node_modules/@radix-ui/react-tabs/**/*.js",
   ],
   prefix: "",
   theme: {

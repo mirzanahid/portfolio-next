@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
@@ -9,9 +9,6 @@ import { Button } from "@/components/ui/button";
 import {
   Github,
   Linkedin,
-  Twitter,
-  Instagram,
-  Facebook,
   Mail,
   ExternalLink,
   MapPin,
@@ -23,51 +20,6 @@ import {
 } from "lucide-react";
 
 // Floating particles component
-function FloatingParticles() {
-  const [particles] = useState(() =>
-    Array.from({ length: 40 }, (_, i) => ({
-      id: i,
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-      size: Math.random() * 4 + 1,
-      duration: Math.random() * 15 + 10,
-    }))
-  );
-
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null; // Render nothing on first render (server side)
-
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {particles.map((particle) => (
-        <motion.div
-          key={particle.id}
-          className="absolute rounded-full bg-gradient-to-r from-purple-400/30 to-pink-400/30"
-          style={{
-            left: `${particle.x}%`,
-            top: `${particle.y}%`,
-            width: particle.size,
-            height: particle.size,
-          }}
-          animate={{
-            y: [0, -80, 0],
-            opacity: [0, 1, 0],
-            scale: [0, 1, 0],
-          }}
-          transition={{
-            duration: particle.duration,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-        />
-      ))}
-    </div>
-  );
-}
 
 export default function Contact() {
   const [copied, setCopied] = useState<string | null>(null);
@@ -82,33 +34,33 @@ export default function Contact() {
     {
       icon: Github,
       label: "GitHub",
-      href: "https://github.com/yourusername",
+      href: "https://github.com/mirzanahid",
       color: "from-purple-600 to-pink-500",
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      href: "https://linkedin.com/in/yourusername",
+      href: "https://www.linkedin.com/in/mirzanahid/",
       color: "from-blue-600 to-purple-600",
     },
-    {
-      icon: Twitter,
-      label: "Twitter",
-      href: "https://twitter.com/yourusername",
-      color: "from-blue-400 to-blue-600",
-    },
-    {
-      icon: Instagram,
-      label: "Instagram",
-      href: "https://instagram.com/yourusername",
-      color: "from-pink-500 to-red-500",
-    },
-    {
-      icon: Facebook,
-      label: "Facebook",
-      href: "https://facebook.com/yourusername",
-      color: "from-blue-500 to-blue-700",
-    },
+    // {
+    //   icon: Twitter,
+    //   label: "Twitter",
+    //   href: "https://twitter.com/yourusername",
+    //   color: "from-blue-400 to-blue-600",
+    // },
+    // {
+    //   icon: Instagram,
+    //   label: "Instagram",
+    //   href: "https://instagram.com/yourusername",
+    //   color: "from-pink-500 to-red-500",
+    // },
+    // {
+    //   icon: Facebook,
+    //   label: "Facebook",
+    //   href: "https://facebook.com/yourusername",
+    //   color: "from-blue-500 to-blue-700",
+    // },
   ];
 
   return (
@@ -118,7 +70,6 @@ export default function Contact() {
     >
       {/* Animated Background */}
       <div className="absolute inset-0">
-        <FloatingParticles />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(147,51,234,0.1),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(236,72,153,0.1),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(239,68,68,0.05),transparent_50%)]" />
@@ -169,8 +120,8 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Have a project in mind or just want to say hello? I&apos;m always open to
-            discussing new opportunities and ideas.
+            Have a project in mind or just want to say hello? I&apos;m always
+            open to discussing new opportunities and ideas.
           </motion.p>
 
           <motion.div
@@ -202,8 +153,8 @@ export default function Contact() {
                       Get In Touch
                     </h3>
                     <p className="text-gray-600 dark:text-gray-400 mb-6">
-                      Ready to start a project or just want to chat? I&apos;d love to
-                      hear from you.
+                      Ready to start a project or just want to chat? I&apos;d
+                      love to hear from you.
                     </p>
                   </div>
 
@@ -214,15 +165,15 @@ export default function Contact() {
                         <div className="flex items-center">
                           <Mail className="w-5 h-5 text-purple-600 dark:text-purple-400 mr-3" />
                           <span className="text-gray-800 dark:text-gray-200 font-medium">
-                            hello@yourname.com
+                            mirzanahid57@gmail.com
                           </span>
                         </div>
                         <Button
                           size="sm"
                           variant="ghost"
-                          className="text-gray-500 hover:text-purple-600 dark:text-gray-400 dark:hover:text-purple-400"
+                          className="text-gray-500 hover:text-purple-600 dark:text-gray-400 dark:hover:text-purple-400 cursor-pointer"
                           onClick={() =>
-                            copyToClipboard("hello@yourname.com", "email")
+                            copyToClipboard(" mirzanahid57@gmail.com", "email")
                           }
                         >
                           {copied === "email" ? (
@@ -246,7 +197,7 @@ export default function Contact() {
                     </div>
 
                     {/* Phone Section */}
-                    <div className="bg-gray-50 dark:bg-gray-900/50 rounded-xl p-4 relative group">
+                    <div className="bg-gray-50 dark:bg-gray-900/50 rounded-xl p-4 relative group hidden">
                       <div className="flex items-center justify-between mb-3">
                         <div className="flex items-center">
                           <Phone className="w-5 h-5 text-pink-500 dark:text-pink-400 mr-3" />
@@ -287,7 +238,7 @@ export default function Contact() {
                       <div className="flex items-center">
                         <MapPin className="w-5 h-5 text-red-500 dark:text-red-400 mr-3" />
                         <span className="text-gray-800 dark:text-gray-200 font-medium">
-                          San Francisco, CA
+                          Dhaka, Bangladesh
                         </span>
                       </div>
                       <div className="absolute -inset-px bg-gradient-to-r from-red-500 to-orange-500 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
@@ -501,7 +452,7 @@ export default function Contact() {
                 opportunities. Let&apos;s create something amazing together!
               </p>
               <motion.a
-                href="mailto:hello@yourname.com"
+                href="mailto:mirzanahid57@gmail.com"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className="inline-flex items-center px-4 md:px-10 py-4 bg-white text-pink-600 font-bold text-lg rounded-2xl shadow-2xl hover:shadow-white/25 transition-all duration-300"
