@@ -14,14 +14,14 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Mirza Nahid",
-  description: "I'ts a Mirza Nahid's Portfolio who is a Mern stack developer.",
+  description: "Welcome to Mirza Nahid's personal portfolio — a showcase of creative projects and technical skills as a passionate MERN stack developer specializing in building modern, scalable web applications.",
   icons: {
     icon: '/mn-favicon.svg',
   },
 
   openGraph: {
     title: 'Mirza Nahid',
-    description: "I'ts a Mirza Nahid's Portfolio who is a Mern stack developer",
+    description: "Welcome to Mirza Nahid's personal portfolio — a showcase of creative projects and technical skills as a passionate MERN stack developer specializing in building modern, scalable web applications.",
     url: 'https://mirzanahid.vercel.app/',
     siteName: "Mirza Nahid's Portfolio",
     images: [
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Mirza Nahid',
-    description: "I'ts a Mirza Nahid's Portfolio who is a Mern stack developer.",
+    description: "Welcome to Mirza Nahid's personal portfolio — a showcase of creative projects and technical skills as a passionate MERN stack developer specializing in building modern, scalable web applications.",
     images: ['https://mirzanahid.vercel.app/thumbnail.png'],
   },
 
