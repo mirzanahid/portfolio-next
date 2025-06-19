@@ -605,7 +605,7 @@ export default function Projects() {
                   onMouseLeave={() => setHoveredProject(null)}
                 >
                   <Card className=" border-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl shadow-xl overflow-hidden group h-full">
-                    <div className="relative overflow-hidden">
+                    <div className="relative overflow-hidden ">
                       <Image
                         src={project.image || "/placeholder.svg"}
                         alt={project.title}
