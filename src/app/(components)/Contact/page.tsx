@@ -143,7 +143,7 @@ export default function Contact() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <Card className="border-0 bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl shadow-2xl overflow-hidden h-full">
-              <CardContent className="p-8 ">
+              <CardContent className="sm:p-8 p-[18px] ">
                 <div className="flex flex-col h-full">
                   <div className="mb-6">
                     <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-purple-600 to-pink-500 flex items-center justify-center shadow-lg mb-6">
@@ -353,7 +353,7 @@ export default function Contact() {
 
               {/* Main image container */}
               <motion.div
-                className="relative bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-2xl p-3 shadow-2xl"
+                className="relative bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-2xl p-[10px] shadow-2xl"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
