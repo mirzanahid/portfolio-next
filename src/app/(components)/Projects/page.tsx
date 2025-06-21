@@ -51,7 +51,7 @@ export default function Projects() {
       featured: false,
       stats: { views: "2.5K", stars: 45, users: "500+" },
       year: "2024",
-      status: "Live",
+      status: "Personal",
     },
     {
       id: "2",
@@ -74,7 +74,7 @@ export default function Projects() {
       featured: false,
       stats: { views: "1.8K", stars: 32, users: "200+" },
       year: "2024",
-      status: "Live",
+      status: "Personal",
     },
     {
       id: "3",
@@ -97,7 +97,7 @@ export default function Projects() {
       featured: false,
       stats: { views: "1.2K", stars: 28, users: "100+" },
       year: "2023",
-      status: "Live",
+      status: "Personal",
     },
     {
       id: "4",
@@ -119,7 +119,7 @@ export default function Projects() {
       featured: true,
       stats: { views: "3.1K", stars: 67, users: "800+" },
       year: "2024",
-      status: "Live",
+      status: "Team",
     },
     {
       id: "5",
@@ -142,7 +142,7 @@ export default function Projects() {
       featured: true,
       stats: { views: "900", stars: 15, users: "50+" },
       year: "2023",
-      status: "Live",
+      status: "Team",
     },
     {
       id: "6",
@@ -150,14 +150,14 @@ export default function Projects() {
       description:
         "Cheapest Home and Car Insurance Companies in Florida & California",
       category: "client",
-      technologies: ["Html", "Bootstrap", "Jquery"],
+      technologies: ["Html","Css","Bootstrap","Jquery"],
       image: "/projects/getaqoute.png",
       liveUrl: "https://www.getaquote.com/",
       githubUrl: "#",
       featured: false,
       stats: { views: "1.5K", stars: 38, users: "300+" },
       year: "2024",
-      status: "Live",
+      status: "Client",
     },
     {
       id: "7",
@@ -165,14 +165,14 @@ export default function Projects() {
       description:
         "HST's Value-Driven Health Plan services (VDHPs) are reference-based pricing services for employers that help to control the cost of care.",
       category: "client",
-      technologies: ["Html", "Bootstrap", "Jquery"],
+      technologies: ["Html","Css","Bootstrap","Jquery"],
       image: "/projects/hsthealthcare.png",
       liveUrl: "https://www.hstechnology.com/",
       githubUrl: "#",
       featured: false,
       stats: { views: "1.5K", stars: 38, users: "300+" },
       year: "2024",
-      status: "Live",
+      status: "Client",
     },
     {
       id: "8",
@@ -180,14 +180,14 @@ export default function Projects() {
       description:
         "NOMADA is the latest, most mobile expression of that unerring pursuit of culinary excellence—it’s world-class flavor filled with the roaming soul of California",
       category: "client",
-      technologies: ["Html", "Bootstrap", "Jquery"],
+      technologies: ["Html","Css","Bootstrap","Jquery"],
       image: "/projects/nomada.png",
       liveUrl: "https://www.tastenomada.com/",
       githubUrl: "#",
       featured: false,
       stats: { views: "1.5K", stars: 38, users: "300+" },
       year: "2024",
-      status: "Live",
+      status: "Client",
     },
     {
       id: "9",
@@ -195,14 +195,14 @@ export default function Projects() {
       description:
         "AYSO Irvine Region 213 - Serving Irvine for 40 years · Fall Soccer. Register for Fall Soccer today! · Become A Coach. Learn how to become a soccer coach",
       category: "client",
-      technologies: ["Html", "Bootstrap", "Jquery"],
+      technologies: ["Html","Css","Bootstrap","Jquery"],
       image: "/projects/aysoirvine.png",
       liveUrl: "https://www.ayso213.org/",
       githubUrl: "#",
       featured: false,
       stats: { views: "1.5K", stars: 38, users: "300+" },
       year: "2024",
-      status: "Live",
+      status: "Client",
     },
     {
       id: "10",
@@ -210,14 +210,14 @@ export default function Projects() {
       description:
         "For environmental testing, you need someone who is dependable, reliable, and who you know will get the job done right.",
       category: "client",
-      technologies: ["Html", "Bootstrap", "Jquery"],
+      technologies: ["Html","Css","Bootstrap","Jquery"],
       image: "/projects/envirocheck.png",
       liveUrl: "https://www.envirocheck.com/",
       githubUrl: "#",
       featured: false,
       stats: { views: "1.5K", stars: 38, users: "300+" },
       year: "2024",
-      status: "Live",
+      status: "Client",
     },
     {
       id: "11",
@@ -225,14 +225,14 @@ export default function Projects() {
       description:
         "Offering infrared sauna, red-light, salt and HALO therapy, Saunatica has the right solution for everyone",
       category: "client",
-      technologies: ["Html", "Bootstrap", "Jquery"],
+      technologies: ["Html","Css","Bootstrap","Jquery"],
       image: "/projects/saunatica.png",
       liveUrl: "https://www.saunatica.com/",
       githubUrl: "#",
       featured: false,
       stats: { views: "1.5K", stars: 38, users: "300+" },
       year: "2024",
-      status: "Live",
+      status: "Client",
     },
     {
       id: "12",
@@ -240,14 +240,14 @@ export default function Projects() {
       description:
         "Emergency relief for the families affected by the demolition and displacement.",
       category: "client",
-      technologies: ["React.js", "Material", "Vite"],
+      technologies: ["React.js", "Material Ui", "Vite"],
       image: "/projects/ihayabagis.png",
       liveUrl: "https://bagis.ihyavakfi.org.tr/",
       githubUrl: "#",
       featured: false,
       stats: { views: "1.5K", stars: 38, users: "300+" },
       year: "2024",
-      status: "Live",
+      status: "Client",
     },
   ];
 

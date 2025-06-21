@@ -14,6 +14,14 @@ import {
   Sparkles,
   CheckCircle2,
   BookOpen,
+  Camera,
+  Footprints,
+  Book,
+  Plane,
+  Music,
+  Film,
+  Globe,
+  Utensils,
 } from "lucide-react";
 
 export default function About() {
@@ -106,6 +114,18 @@ export default function About() {
     // },
   ];
 
+  const interests = [
+    { name: "Photography", icon: Camera },
+    { name: "Walking", icon: Footprints },
+    { name: "Coffee", icon: Coffee },
+    { name: "Reading", icon: Book },
+    { name: "Travel", icon: Plane },
+    { name: "Food", icon: Utensils  },
+    { name: "Music", icon: Music },
+    { name: "Movie", icon: Film },
+    { name: "Browsing", icon: Globe },
+    { name: "Coding", icon: Code },
+  ];
   return (
     <section
       id="about"
@@ -181,34 +201,23 @@ export default function About() {
                 Personal Interests
               </h3>
               <div className="flex flex-wrap gap-3">
-                {[
-                  "Photography",
-                  "Walking",
-                  "Coffee",
-                  "Reading",
-                  "Travel",
-                  "Music",
-                  "Movie",
-                  "Browsing",
-                ].map((interest, index) => (
-                  <motion.div
-                    key={interest}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: 0.05 * index }}
-                  >
-                    <Badge className="px-3 py-1.5 bg-white dark:bg-gray-800 text-pink-700 dark:text-pink-300 border border-pink-200 dark:border-pink-800 hover:bg-pink-50 dark:hover:bg-pink-900/30">
-                      {interest === "Coffee" && (
-                        <Coffee className="w-3.5 h-3.5 mr-1.5" />
-                      )}
-                      {interest === "Open Source" && (
-                        <Code className="w-3.5 h-3.5 mr-1.5" />
-                      )}
-                      {interest}
-                    </Badge>
-                  </motion.div>
-                ))}
+                {interests.map((interest, index) => {
+                  const Icon = interest.icon;
+                  return (
+                    <motion.div
+                      key={interest.name}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: 0.05 * index }}
+                    >
+                      <Badge className="px-3 py-1.5 bg-white dark:bg-gray-800 text-pink-700 dark:text-pink-300 border border-pink-200 dark:border-pink-800 hover:bg-pink-50 dark:hover:bg-pink-900/30 inline-flex items-center">
+                        <Icon className="w-3.5 h-3.5 mr-1.5" />
+                        {interest.name}
+                      </Badge>
+                    </motion.div>
+                  );
+                })}
               </div>
             </div>
           </motion.div>
@@ -368,34 +377,23 @@ export default function About() {
               Personal Interests
             </h3>
             <div className="flex flex-wrap gap-3">
-              {[
-                "Photography",
-                "Walking",
-                "Coffee",
-                "Reading",
-                "Travel",
-                "Music",
-                "Movie",
-                "Browsing",
-              ].map((interest, index) => (
-                <motion.div
-                  key={interest}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.05 * index }}
-                >
-                  <Badge className="px-3 py-1.5 bg-white dark:bg-gray-800 text-pink-700 dark:text-pink-300 border border-pink-200 dark:border-pink-800 hover:bg-pink-50 dark:hover:bg-pink-900/30">
-                    {interest === "Coffee" && (
-                      <Coffee className="w-3.5 h-3.5 mr-1.5" />
-                    )}
-                    {interest === "Open Source" && (
-                      <Code className="w-3.5 h-3.5 mr-1.5" />
-                    )}
-                    {interest}
-                  </Badge>
-                </motion.div>
-              ))}
+              {interests.map((interest, index) => {
+                const Icon = interest.icon;
+                return (
+                  <motion.div
+                    key={interest.name}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.05 * index }}
+                  >
+                    <Badge className="px-3 py-1.5 bg-white dark:bg-gray-800 text-pink-700 dark:text-pink-300 border border-pink-200 dark:border-pink-800 hover:bg-pink-50 dark:hover:bg-pink-900/30 inline-flex items-center">
+                      <Icon className="w-3.5 h-3.5 mr-1.5" />
+                      {interest.name}
+                    </Badge>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </div>
