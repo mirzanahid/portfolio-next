@@ -240,7 +240,7 @@ export default function Projects() {
       description:
         "Emergency relief for the families affected by the demolition and displacement.",
       category: "client",
-      technologies: ["React.js", "Material Ui", "Vite"],
+      technologies: ["React.js", "Material Ui", "Vite", "React router dom"],
       image: "/projects/ihayabagis.png",
       liveUrl: "https://bagis.ihyavakfi.org.tr/",
       githubUrl: "#",
