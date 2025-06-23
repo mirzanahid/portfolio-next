@@ -112,6 +112,8 @@ export default function Projects() {
         "ShadCN UI",
         "Tailwind CSS",
         "Mongoose",
+         "Typescript",
+        "Framer-Motion"
       ],
       image: "/projects/swapnest.png",
       liveUrl: "https://swap-nest-client.vercel.app/",
@@ -135,6 +137,8 @@ export default function Projects() {
         "ShadCN UI",
         "Tailwind CSS",
         "Mongoose",
+        "Typescript",
+        "Framer-Motion"
       ],
       image: "/projects/papyrus.png",
       liveUrl: "https://papyrus-client.vercel.app/",
