@@ -59,7 +59,7 @@ export default function SkillCard({
   isHovered,
   onHover,
   onLeave,
-  gradient,
+
 }: SkillCardProps) {
   const { progress } = useAnimatedProgress(skill.level, delay);
 
@@ -105,7 +105,7 @@ export default function SkillCard({
               className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent"
               animate={{ scale: isHovered ? 1.1 : 1 }}
             >
-              {progress}%
+   
             </motion.span>
             {progress >= 85 && (
               <motion.div
@@ -120,7 +120,7 @@ export default function SkillCard({
         </div>
 
         {/* Progress Bar */}
-        <div className="relative h-3 bg-gray-200 dark:bg-gray-600 rounded-full overflow-hidden">
+        {/* <div className="relative h-3 bg-gray-200 dark:bg-gray-600 rounded-full overflow-hidden">
           <motion.div
             className={`absolute top-0 left-0 h-full bg-gradient-to-r ${gradient} rounded-full`}
             style={{ width: `${progress}%` }}
@@ -137,7 +137,7 @@ export default function SkillCard({
               ease: "easeInOut",
             }}
           />
-        </div>
+        </div> */}
       </Card>
     </motion.div>
   );
