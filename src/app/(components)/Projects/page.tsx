@@ -562,7 +562,7 @@ export default function Projects() {
                           onClick={() => window.open(project.liveUrl, "_blank")}
                         >
                           <ExternalLink className="w-4 h-4 mr-2" />
-                          Live Demo
+                          Live 
                         </Button>
                         <Button
                           variant="outline"
@@ -668,7 +668,7 @@ export default function Projects() {
                           onClick={() => window.open(project.liveUrl, "_blank")}
                         >
                           <ExternalLink className="w-3 h-3 mr-1" />
-                          Demo
+                       Live
                         </Button>
                         {project.githubUrl == "#" ? (
                           ""
